@@ -6,36 +6,37 @@ class Departement(models.Model):
   numero = models.IntergerField()
   prix = models.ForeignKey(Prix,on_delete=models.CASCADE)
 
-class Usine(models.Mode2):
+class Usine(models.Model):
   departement = models.ForeignKey(Departement,on_delete=models.CASCADE)
-  taille = models.FloatTimeField()
+  taille = models.FloatField()
   machines = models.ForeignKey(Machine,on_delete=models.PROTECT)
   recettes = models.ForeignKey(Recette,on_delete=models.PROTECT)
   stocks = models.ForeignKey(Quantiteingredient,on_delete=models.PROTECT)
 
-class Prix(models.Mode3):
-  ingredient = models.CharField()
-  departement = models.CharTimeField()
-  prix = models.FloatTimeField()
+class Prix(models.Model):
+  ingredient = models.ForeignKey(Ingredient,on_delete=models.CASCADE)
+  departement = models.ForeignKey(Departement,on_delete=models.CASCADE)
+  prix = models.FloatField()
 
-class Machine(models.Mode4):
+class Machine(models.Model):
   nom = models.CharField()
-  prix = models.FloatTimeField()
+  prix = models.FloatField()
 
-class Recette(models.Mode5):
+class Recette(models.Model):
   nom = models.CharField()
-  action = models.CharTimeField()
+  action = models.FloatField(Action,on_delete=models.CASCADE)
 
-class Ingredient(models.Mode6):
+class Ingredient(models.Model):
   nom = models.CharField()
 
-class Quantiteingredient(models.Mode7):
-  ingredient = models.CharField()
-  quantite = models.FloatTimeField()
+class Quantiteingredient(models.Model):
+  ingredient = models.ForeignKey(Ingredient,on_delete=models.CASCADE)
+  quantite = models.IntergerField()
 
-class ACtion(models.Mode8):
-  machine = models.CharField()
-  commande = models.FloatTimeField()
-  duree = models.CharTimeField()
-  ingredient = models.CharTimeField()
-  action = models.CharTimeField()
+class Action(models.Model):
+  machines = models.ForeignKey(Machine,on_delete=models.CASCADE)
+  commande = models.CharField()
+  duree = models.IntergerField()
+  ingredient = models.ForeignKey(Quantiteingredient,on_delete=models.PROTECT)
+  def __str__(self):
+        return 
