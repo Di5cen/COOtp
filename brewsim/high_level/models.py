@@ -4,11 +4,11 @@ from django.db import models
 
 class Departement(models.Model):
   numero = models.IntegerField()
-  prix = models.FloatField()
+  prix_departement = models.FloatField()
 
 class Machine(models.Model):
   nom = models.CharField(max_length=200)
-  prix = models.FloatField()
+  prix_machine = models.FloatField()
 
 class Ingredient(models.Model):
   nom = models.CharField(max_length=200)
