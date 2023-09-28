@@ -7,7 +7,7 @@ class Departement(models.Model):
   prix_departement = models.FloatField()
 
   def __str__(self):
-      return self.numero
+      return str(self.numero)
 
 class Machine(models.Model):
   nom = models.CharField(max_length=200)
@@ -27,7 +27,7 @@ class Quantiteingredient(models.Model):
   quantite = models.IntegerField()
 
   def __str__(self):
-      return self.ingredient
+      return str(self.ingredient)
 
 class Action(models.Model):
   machines = models.ForeignKey(Machine,on_delete=models.CASCADE)
@@ -54,7 +54,7 @@ class Usine(models.Model):
   stocks = models.ForeignKey(Quantiteingredient,on_delete=models.PROTECT)
 
   def __str__(self):
-      return self.taille
+      return str(self.taille)
 
 class Prix(models.Model):
   ingredient = models.ForeignKey(Ingredient,on_delete=models.CASCADE)
@@ -62,7 +62,7 @@ class Prix(models.Model):
   prix = models.FloatField()
 
   def __str__(self):
-      return self.prix
+      return str(self.prix)
 
 
 
