@@ -4,7 +4,7 @@ from django.db import models
 
 class Departement(models.Model):
   numero = models.IntegerField()
-  prix = models.ForeignKey(Prix,on_delete=models.CASCADE)
+  prix = models.FloatField()
 
 class Usine(models.Model):
   departement = models.ForeignKey(Departement,on_delete=models.CASCADE)
