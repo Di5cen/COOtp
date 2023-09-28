@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Departement, Usine, Prix, Machine, Recette, Ingredient, Quantiteingredient, Action
 
 class DepartementAdmin(admin.ModelAdmin):
-    list_display = ('numero', 'prix')
+    list_display = ('numero', 'prix_departement')
 
 class UsineAdmin(admin.ModelAdmin):
     list_display = ('departement', 'taille', 'machines','recettes','stocks')
@@ -13,7 +13,7 @@ class PrixAdmin(admin.ModelAdmin):
     list_display = ('ingredient', 'departement', 'prix')
 
 class MachineAdmin(admin.ModelAdmin):
-    list_display = ('nom', 'prix')
+    list_display = ('nom', 'prix_machine')
 
 class RecetteAdmin(admin.ModelAdmin):
     list_display = ('nom', 'action')
