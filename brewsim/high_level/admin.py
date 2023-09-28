@@ -19,7 +19,7 @@ class RecetteAdmin(admin.ModelAdmin):
     list_display = ('nom', 'action')
 
 class IngredientAdmin(admin.ModelAdmin):
-    list_display = ('nom')
+    list_display = ('nom',)
 
 class QuantiteingredientAdmin(admin.ModelAdmin):
     list_display = ('ingredient', 'quantite')
