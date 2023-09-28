@@ -4,28 +4,28 @@ from django.contrib import admin
 from .models import Departement, Usine, Prix, Machine, Recette, Ingredient, Quantiteingredient, Action
 
 class DepartementAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'publish_date')
+    list_display = ('numero', 'prix')
 
 class UsineAdmin(admin.ModelAdmin):
-    list_display = ('name', 'birth_date', 'country')
+    list_display = ('departement', 'taille', 'machines','recettes','stocks')
 
 class PrixAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'publish_date')
+    list_display = ('ingredient', 'departement', 'prix')
 
 class MachineAdmin(admin.ModelAdmin):
-    list_display = ('name', 'birth_date', 'country')
+    list_display = ('nom', 'prix')
 
 class RecetteAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'publish_date')
+    list_display = ('nom', 'action')
 
 class IngredientAdmin(admin.ModelAdmin):
-    list_display = ('name', 'birth_date', 'country')
+    list_display = ('nom')
 
 class QuantiteingredientAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'publish_date')
+    list_display = ('ingredient', 'quantite')
 
 class ActionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'birth_date', 'country')
+    list_display = ('machines', 'commande', 'duree','ingredient')
   
 admin.site.register(Departement, DepartementAdmin)
 admin.site.register(Usine, UsineAdmin)
