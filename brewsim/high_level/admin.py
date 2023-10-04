@@ -11,7 +11,7 @@ class UsineAdmin(admin.ModelAdmin):
 
 class PrixAdmin(admin.ModelAdmin):
     list_display = ('ingredient', 'departement', 'prix')
-    list_filter = ('departement_numero', 'ingredient_id', 'prix')
+    list_filter = ('departement', 'ingredient', 'prix')
     
 class MachineAdmin(admin.ModelAdmin):
     list_display = ('nom', 'prix_machine')
