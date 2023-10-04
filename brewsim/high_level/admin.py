@@ -7,7 +7,11 @@ class DepartementAdmin(admin.ModelAdmin):
     list_display = ('numero', 'prix_departement')
     
 class UsineAdmin(admin.ModelAdmin):
-    list_display = ('departement', 'taille', 'machines','recettes','stocks')
+    def machines_list(self, obj):
+        return ", ".join([machine.nom for machine in obj.machines.all()])
+    machines_list.short_description = "all machines"
+    
+    list_display = ('departement', 'taille', 'machines','recettes','stocks', 'machines_list')
 
 class PrixAdmin(admin.ModelAdmin):
     list_display = ('ingredient', 'departement', 'prix')
