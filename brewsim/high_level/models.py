@@ -49,7 +49,7 @@ class Recette(models.Model):
 class Usine(models.Model):
   departement = models.ForeignKey(Departement,on_delete=models.CASCADE)
   taille = models.FloatField()
-  machines = models.ManyToManyField()
+  machines = models.ManyToManyField('Machine')
   recettes = models.ForeignKey(Recette,on_delete=models.PROTECT)
   stocks = models.ForeignKey(Quantiteingredient,on_delete=models.PROTECT)
 
