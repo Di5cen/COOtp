@@ -51,7 +51,7 @@ class Usine(models.Model):
   taille = models.FloatField()
   machines = models.ManyToManyField('Machine')
   recettes = models.ForeignKey(Recette,on_delete=models.PROTECT)
-  stocks = models.ForeignKey(Quantiteingredient,on_delete=models.PROTECT)
+  stocks = models.ManyToManyField('Quantiteingredient')
 
   def __str__(self):
       return str(self.taille)
