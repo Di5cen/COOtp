@@ -18,5 +18,6 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
-    path("admin/", admin.site.urls),path("admin/departement/<int:pk>),
+    path("admin/", admin.site.urls),
+    path('admin/departement/<int:pk>/', views.departement_detail, name='departement-detail'),
 ]
