@@ -12,7 +12,7 @@ class UsineAdmin(admin.ModelAdmin):
         return ", ".join([machine.nom for machine in obj.machines.all()])
     machines_list.short_description = "all machines"
     def stocks_list(self, obj):
-        return ", ".join([stock.nom for stock in obj.stocks.all()])
+        return ", ".join([stock.ingredient for stock in obj.stocks.all()])
     stocks_list.short_description = "all stocks"
     
     list_display = ('departement', 'taille', 'recettes', 'machines_list', 'stocks_list')
