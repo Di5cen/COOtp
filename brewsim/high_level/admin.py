@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from .models import Departement, Usine, Prix, Machine, Recette, Ingredient, Quantiteingredient, Action
 
-class DepartementAdmin(admin.ModelAdmin):
+class DepartementAdmin(admin.ModelAdmin): 
     list_display = ('numero', 'prix_departement')
     
 class UsineAdmin(admin.ModelAdmin):
@@ -11,7 +11,6 @@ class UsineAdmin(admin.ModelAdmin):
 
 class PrixAdmin(admin.ModelAdmin):
     list_display = ('ingredient', 'departement', 'prix')
-    list_filter = ('departement', 'ingredient', 'prix')
     
 class MachineAdmin(admin.ModelAdmin):
     list_display = ('nom', 'prix_machine')
