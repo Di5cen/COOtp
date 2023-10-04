@@ -5,14 +5,14 @@ from django.db import models
 class Departement(models.Model):
   numero = models.IntegerField()
   prix_departement = models.FloatField()
-
   def __str__(self):
       return str(self.numero)
 
 class Machine(models.Model):
   nom = models.CharField(max_length=200)
   prix_machine = models.FloatField()
-
+  def costs(self):
+      return self.prix_machine
   def __str__(self):
       return self.nom
 
@@ -25,7 +25,8 @@ class Ingredient(models.Model):
 class Quantiteingredient(models.Model):
   ingredient = models.ForeignKey(Ingredient,on_delete=models.CASCADE)
   quantite = models.IntegerField()
-
+  def costs(self):
+      return self.quantite*self.ingredient.prix_set.get(ingredient__nom=self.ingredient.nom).prix
   def __str__(self):
       return str(self.ingredient)
 
@@ -52,7 +53,14 @@ class Usine(models.Model):
   machines = models.ManyToManyField('Machine')
   recettes = models.ForeignKey(Recette,on_delete=models.PROTECT)
   stocks = models.ManyToManyField('Quantiteingredient')
-
+  def costs(self):
+      value_costs=0
+      for machine in self.machines.all():
+          value_costs+=machine.costs()
+      for stock in self.stocks.all():
+          value_costs+=stock.costs()
+      value_costs+=self.departement.prix_departement*self.taille
+      return value_costs
   def __str__(self):
       return str(self.taille)
 
