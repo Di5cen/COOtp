@@ -15,7 +15,7 @@ class UsineAdmin(admin.ModelAdmin):
         return ", ".join([stock.nom for stock in obj.stocks.all()])
     stocks_list.short_description = "all stocks"
     
-    list_display = ('departement', 'taille', 'recettes','stocks', 'machines_list')
+    list_display = ('departement', 'taille', 'recettes', 'machines_list', 'stocks_list')
 
 class PrixAdmin(admin.ModelAdmin):
     list_display = ('ingredient', 'departement', 'prix')
