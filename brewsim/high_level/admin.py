@@ -5,11 +5,15 @@ from .models import Departement, Usine, Prix, Machine, Recette, Ingredient, Quan
 
 class DepartementAdmin(admin.ModelAdmin): 
     list_display = ('numero', 'prix_departement')
-    
+
+# 包含2个manytomanyfield模型，需要重新定义
 class UsineAdmin(admin.ModelAdmin):
     def machines_list(self, obj):
         return ", ".join([machine.nom for machine in obj.machines.all()])
     machines_list.short_description = "all machines"
+    def stocks_list(self, obj):
+        return ", ".join([stock.nom for stock in obj.stocks.all()])
+    stocks_list.short_description = "all stocks"
     
     list_display = ('departement', 'taille', 'recettes','stocks', 'machines_list')
 
