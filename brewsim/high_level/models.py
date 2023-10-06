@@ -24,8 +24,8 @@ class Machine(models.Model):
   def __str__(self):
       return self.nom
 
-def json(self):
-        return {
+  def json(self):
+			return {
             'id': self.id,
             'nom': self.nom,
             'prix_machine': str(self.prix_machine),

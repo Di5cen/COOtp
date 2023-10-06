@@ -4,5 +4,5 @@ from .models import Departement
 # Create your views here.
 class DepartementDetailView(DetailView):
   model = Departement
-  def reponse(self):
+  def get(self):
   	return HttpResponse(dumps(self.object.json()) )
