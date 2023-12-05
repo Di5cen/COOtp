@@ -32,7 +32,7 @@ int main()
 {
     Departement d1;
     d1.Afficher();
-    cpr::Response r = cpr::Get(cpr::Url{"http://localhost:8000/admin/high_level/departement/"});
+    cpr::Response r = cpr::Get(cpr::Url{"http://127.0.0.1:8000/departement/1/"});
     if (r.status_code == 200) {
         cout << "HTTP 请求成功！" << endl;
         cout << "响应内容：" << r.text << endl;
