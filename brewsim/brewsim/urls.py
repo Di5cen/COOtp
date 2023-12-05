@@ -20,5 +20,5 @@ from high_level import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('admin/departement/<int:pk>/', views.DepartementDetailView.as_view(), name='departement-detail'),
+    path("departement/<int:id_departement>/", views.DepartementDetailView.as_view(), name='departement-detail'),
 ]

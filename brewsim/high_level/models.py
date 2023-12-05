@@ -1,4 +1,5 @@
 from django.db import models 
+from django.core.serializers import serialize
 import json
 
 # Create your models here.
